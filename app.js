@@ -11,11 +11,14 @@ var app = new Vue({
     data: {
         maximum: 50,
         products: null,
-        cart: []
+        cart: [],
+        style: {
+            label: ['font-weight-bold', 'mr-2']
+        }
     },
 
     mounted: function () {
-        fetch('https://hplussport.com/api/products/order/price')
+        fetch('https://fakestoreapi.com/products')
             .then(response => response.json())
             .then(data => {
                 this.products = data;

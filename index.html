@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container-fluid" id="app">
+    <div class="container" id="app">
 
         <!-- Result add cart -->
         <nav class="navbar navbar-light bg-light">
@@ -22,15 +22,18 @@
                 <span class="badge badge-pill badge-success">{{cart.length}}</span>
             </div>
         </nav>
+        <br>
+        <h1>Fake Store</h1>
+        <div class="d-flex align-items-center">
 
-        <!-- Filter item with input number-->
-        <div class="form-inline mr-auto">
-            <label for="" class="font-weight-bold mr-2">Max</label>
-            <input type="number" class="form-controlw-25" v-model="maximum">
+            <!-- Filter item with input number-->
+            <label for="" :class="style.label">Max</label>
+            <input type="number" class="form-control mx-2" :style="{'width':'60px', 'text-align':'center'}" v-model="maximum">
+
+            <!-- Filter item with range -->
+            <input type="range" class="costume-range" min="0" max="2000000" v-model="maximum">
         </div>
 
-        <!-- Filter item with range -->
-        <input type="range" class="costume-range" min="0" max="200" v-model="maximum">
 
         <div class="row d-flex mb-3 align-items-center" v-for="item in products">
             <div v-if="item.price <= Number(maximum)">
@@ -45,7 +48,7 @@
 
                 <!-- Show product -->
                 <div class="col">
-                    <h3 class="text-info">{{item.name}}</h3>
+                    <h3 class="text-info">{{item.title}}</h3>
                     <p>{{item.description}}</p>
                     <div class="h3">IDR. {{item.price}}</div>
                 </div>
